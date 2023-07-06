@@ -1,4 +1,5 @@
 import './App.css';
+import PostsContainer from "./components/PostsContainer";
 
 
 //
@@ -19,11 +20,11 @@ import './App.css';
 //     пости мають виводитись під компонетою Users (в App компоненті)
 function App() {
 
-  return (
-      <>
-
-      </>
-  );
+    return (
+        <>
+            <PostsContainer/>
+        </>
+    );
 }
 
 export default App;
