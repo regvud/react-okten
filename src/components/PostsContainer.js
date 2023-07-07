@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import PostComponent from "./PostComponent";
 import PostComponentDetailed from "./PostComponentDetailed";
 import styles from "./PostComponent.module.css";
+import {logDOM} from "@testing-library/react";
 
 const PostsContainer = () => {
     const [posts, setPosts] = useState([])
@@ -16,6 +17,7 @@ const PostsContainer = () => {
     {/*//     Зробити кнопку вибора поста, при натисканні на яку в Posts.js ви покажете детальну інфомацію про пост(всю інфу)*/
     }
     const handlerClick = (id) => {
+        console.log(switcher)
         const postToHandle = posts.find(post => post.id === id)
         console.log(postToHandle)
         return (
@@ -26,7 +28,7 @@ const PostsContainer = () => {
     }
 
     return (
-//     відобразити кожного інформацію (id,title) з кожного поста (компонента Post)
+        //     відобразити кожного інформацію (id,title) з кожного поста (компонента Post)
         <>
             {posts.map((post, id) => {
                 return (
