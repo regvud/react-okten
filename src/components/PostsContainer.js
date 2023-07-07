@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import PostComponent from "./PostComponent";
 import PostComponentDetailed from "./PostComponentDetailed";
 import styles from "./PostComponent.module.css";
-import {logDOM} from "@testing-library/react";
 
 const PostsContainer = () => {
     const [posts, setPosts] = useState([])
