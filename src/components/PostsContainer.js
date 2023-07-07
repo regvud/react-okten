@@ -16,7 +16,6 @@ const PostsContainer = () => {
     {/*//     Зробити кнопку вибора поста, при натисканні на яку в Posts.js ви покажете детальну інфомацію про пост(всю інфу)*/
     }
     const handlerClick = (id) => {
-        console.log(switcher)
         const postToHandle = posts.find(post => post.id === id)
         console.log(postToHandle)
         return (
