@@ -40,3 +40,4 @@ const PostsContainer = () => {
 };
 
 export default PostsContainer;
+//условие поставить!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
