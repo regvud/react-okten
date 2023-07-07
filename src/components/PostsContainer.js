@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import PostComponent from "./PostComponent";
+import PostComponentDetailed from "./PostComponentDetailed";
 import styles from "./PostComponent.module.css";
 
 const PostsContainer = () => {
     const [posts, setPosts] = useState([])
-
 //     з jsonplaceholder отримати всі пости в компоненту Posts.js
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/posts')
@@ -13,18 +13,14 @@ const PostsContainer = () => {
 
     }, [])
 
-    {/*//     Зробити кнопку вибора поста, при натисканні на яку в Posts.js ви покажете детальну інфомацію про пост(всю інфу)*/}
-    const handlerClick = () => {
+    {/*//     Зробити кнопку вибора поста, при натисканні на яку в Posts.js ви покажете детальну інфомацію про пост(всю інфу)*/
+    }
+    const handlerClick = (id) => {
+        const postToHandle = posts.find(post => post.id === id)
+        console.log(postToHandle)
         return (
             <>
-                {posts.map((post, id) => {
-                    return <>
-                        <PostComponent
-                            key={id}
-                            post={post}
-                            handlerClick={handlerClick}/>
-                    </>
-                })}
+                <PostComponentDetailed key={id} post={postToHandle}/>
             </>
         )
     }
@@ -34,13 +30,10 @@ const PostsContainer = () => {
         <>
             {posts.map((post, id) => {
                 return (
-                    <div className={styles.container}>
-                        <h5>{post.id}</h5>
-                        <h5>{post.title}</h5>
-                        <button onClick={handlerClick}>Click</button>
-                    </div>
+                    <>
+                        <PostComponent key={id} post={post} handlerClick={handlerClick}/>
+                    </>
                 )
-                // return <PostComponent key={id} post={post} handlerClick={handlerClick}/>
             })}
         </>
     );

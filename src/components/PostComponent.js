@@ -6,14 +6,13 @@ const PostComponent = (props) => {
     return (
         <>
             <div className={styles.container}>
-                <h5>UserID: {post.userId}</h5>
                 <h5>ID: {post.id}</h5>
                 <h5>Title: {post.title}</h5>
-                <h5>Body: {post.body}</h5>
-
+                <button onClick={() => handlerClick(post.id)}>Click</button>
             </div>
         </>
     );
 };
 
 export default PostComponent;
+
