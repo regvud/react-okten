@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import PostComponent from "./PostComponent";
-import PostComponentDetailed from "./PostComponentDetailed";
-import styles from "./PostComponent.module.css";
 
 const PostsContainer = () => {
     const [posts, setPosts] = useState([])
@@ -13,17 +11,6 @@ const PostsContainer = () => {
 
     }, [])
 
-    {/*//     Зробити кнопку вибора поста, при натисканні на яку в Posts.js ви покажете детальну інфомацію про пост(всю інфу)*/
-    }
-    const handlerClick = (id) => {
-        const postToHandle = posts.find(post => post.id === id)
-        console.log(postToHandle)
-        return (
-            <>
-                <PostComponentDetailed key={id} post={postToHandle}/>
-            </>
-        )
-    }
 
     return (
         //     відобразити кожного інформацію (id,title) з кожного поста (компонента Post)
@@ -31,7 +18,7 @@ const PostsContainer = () => {
             {posts.map((post, id) => {
                 return (
                     <>
-                        <PostComponent key={id} post={post} handlerClick={handlerClick}/>
+                        <PostComponent key={id} post={post}/>
                     </>
                 )
             })}
@@ -40,4 +27,3 @@ const PostsContainer = () => {
 };
 
 export default PostsContainer;
-//условие поставить!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

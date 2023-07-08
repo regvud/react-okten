@@ -4,20 +4,17 @@
 //     репрезентувати тільки окремі поля (зазначені в скрнішоті в папці)
 
 import React from 'react';
-import styles from './PostComponent.module.css'
+import styles from '../Posts/PostComponent.module.css'
 
-let mission = '';
-const LaunchesComponent = (props) => {
-    const {launch} = props
-    const {mission_name, launch_year, } = launch
-
+const LaunchesComponent = ({launch}) => {
+    const {mission_name, launch_year, links: {mission_patch_small}} = launch
 
     return (
         <>
             <div className={styles.container}>
-                <h4>{mission_name}</h4>
-                <h4>{launch_year}</h4>
-                <h4>{links}</h4>
+                <h4>mission name: {mission_name}</h4>
+                <h4>launch year: {launch_year}</h4>
+                <img src={mission_patch_small} alt={mission_name}/>
             </div>
         </>
     );

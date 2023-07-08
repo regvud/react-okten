@@ -2,13 +2,12 @@ import styles from "./PostComponent.module.css";
 import React from "react";
 
 
-const PostComponentDetailed = (props) => {
-    const {post} = props;
+const PostComponentDetailed = ({post}) => {
     const {userId, id, title, body} = post
 
     return (
         <>
-            <div className={styles.container}>
+            <div className={styles.child}>
                 <h5>UserID: {userId}</h5>
                 <h5>ID: {id}</h5>
                 <h5>Title: {title}</h5>

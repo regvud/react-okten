@@ -1,21 +1,19 @@
 import './App.css';
-import PostsContainer from "./components/PostsContainer";
-import LaunchesContainer from "./components/LaunchesContainer";
+import PostsContainer from "./components/Posts/PostsContainer";
+import LaunchesContainer from "./components/Launches/LaunchesContainer";
+import Users from "./components/Users/Users";
+import {useState} from "react";
+import UserPost from "./components/Users/UserPosts/UserPost";
 
 
-
-//     #Advance
-//
-//     вивести всіх юзерів з плайсхолдеру
-//     в кожного юзера має бути кнопка яка буде показувати пости цього юзера
-//
-//     пости мають виводитись під компонетою Users (в App компоненті)
 function App() {
-
+    const [userId, setUserId] = useState(null);
     return (
         <>
             {/*<PostsContainer/>*/}
-            <LaunchesContainer/>
+            {/*<LaunchesContainer/>*/}
+            <Users setUserId={setUserId}/>
+            {userId && <UserPost userId={userId}/>}
         </>
     );
 }
