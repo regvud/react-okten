@@ -12,7 +12,9 @@ const CommentsComponent = ({comment}) => {
             <h4>Name: {name}</h4>
             <h4>email: {email}</h4>
             <p><b>Body</b>: {body}</p>
-            <button onClick={}>{setIsShow ? 'Show' : 'Hide'}</button>
+            <button onClick={() => {
+                setIsShow(!isShow)
+            }}>{setIsShow ? 'Show' : 'Hide'}</button>
         </div>
     );
 };
