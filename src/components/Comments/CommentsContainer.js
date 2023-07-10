@@ -7,11 +7,14 @@ const CommentsContainer = () => {
         fetch('https://jsonplaceholder.typicode.com/comments').then(res => res.json()).then(comments => setComments(comments))
     }, [])
 
+    const deleteComment = (id) => {
+        setComments([...comments].filter(comment => comment.id !== id))
+    }
 
     return (
         <>
             {comments.map((comment, id) => {
-                return <CommentsComponent key={id} comment={comment}/>
+                return <CommentsComponent key={id} comment={comment} deleteComment={deleteComment}/>
             })}
         </>
     );
