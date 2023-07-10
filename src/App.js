@@ -1,13 +1,14 @@
 import './App.css';
+import CommentsContainer from "./components/Comments/CommentsContainer";
 
 
 function App() {
 
-  return (
-      <>
-
-      </>
-  );
+    return (
+        <>
+            <CommentsContainer/>
+        </>
+    );
 }
 
 export default App;
