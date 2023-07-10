@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styles from './Comments.module.css'
-import PostComponent from "../Posts/PostComponent";
+import PostContainer from "../Posts/PostContainer";
 
 const CommentsComponent = ({comment, deleteComment}) => {
     const [isShow, setIsShow] = useState(false)
@@ -16,7 +16,7 @@ const CommentsComponent = ({comment, deleteComment}) => {
             <h4>email: {email}</h4>
             <p><b>Body</b>: {body}</p>
             <button onClick={() => setIsShow(!isShow)}>{isShow ? 'Hide' : 'Show'}</button>
-            {isShow && <PostComponent key={id} commentId={postId}/>}
+            {isShow && <PostContainer key={id} commentId={postId}/>}
             <button onClick={() => deleteComment(id)}>Delete</button>
         </div>
     );
