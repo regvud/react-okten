@@ -2,6 +2,8 @@ import './App.css';
 import {useEffect, useState} from "react";
 import Users from "./components/Users/Users";
 import UserPosts from "./components/UserPosts/UserPosts";
+import Child1 from "./components/Child1/Child1";
+import Child2 from "./components/Child2/Child2";
 
 // property drill
 
@@ -36,6 +38,7 @@ function App() {
     const [users, setUsers] = useState([])
     const [userPosts, setUserPosts] = useState([])
     const [userId, setUserId] = useState(null)
+    const [subChild, setSubChild] = useState(null)
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users').then(res => res.json()).then(users => setUsers(users))
@@ -44,8 +47,10 @@ function App() {
 
     return (
         <>
-            <Users users={users} setUserId={setUserId}/>
-            <UserPosts userId={userId} userPosts={userPosts} setUserPosts={setUserPosts}/>
+            {/*<Users users={users} setUserId={setUserId}/>*/}
+            {/*<UserPosts userId={userId} userPosts={userPosts} setUserPosts={setUserPosts}/>*/}
+            <Child1 subChild={subChild} setSubChild={setSubChild}/>
+            <Child2 subChild={subChild} setSubChild={setSubChild}/>
         </>
     );
 }

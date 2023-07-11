@@ -1,8 +1,8 @@
 import React from 'react';
-import UserDetails from "./UserDetails";
-import UserAddress from "./UserAddress";
-import Company from "./Company";
-import styles from './Users.module.css'
+import UserDetails from "./UserComponents/UserDetails";
+import UserAddress from "./UserComponents/UserAddress";
+import Company from "./UserComponents/Company";
+import styles from './UserComponents/Users.module.css'
 
 const User = ({user, setUserId}) => {
     const {id, email, name, username, address, company} = user
