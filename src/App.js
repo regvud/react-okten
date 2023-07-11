@@ -1,7 +1,6 @@
 import './App.css';
 import {useEffect, useState} from "react";
 import Users from "./components/Users/Users";
-import UserPostComponent from "./components/UserPosts/UserPostComponent";
 import UserPosts from "./components/UserPosts/UserPosts";
 
 // property drill
@@ -47,8 +46,6 @@ function App() {
         <>
             <Users users={users} setUserId={setUserId}/>
             <UserPosts userId={userId} userPosts={userPosts} setUserPosts={setUserPosts}/>
-            {console.log(userId)}
-            {console.log(userPosts)}
         </>
     );
 }

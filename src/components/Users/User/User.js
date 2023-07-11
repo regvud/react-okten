@@ -2,7 +2,6 @@ import React from 'react';
 import UserDetails from "./UserDetails";
 import UserAddress from "./UserAddress";
 import Company from "./Company";
-import company from "./Company";
 
 const User = ({user, setUserId}) => {
     const {id, email, name, username, address, company} = user
