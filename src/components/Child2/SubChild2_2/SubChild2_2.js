@@ -1,12 +1,17 @@
-import React, {useContext} from 'react';
-import subChild1_1 from "../../Child1/SubChild1_1/SubChild1_1";
+import React, { useContext, useEffect} from 'react';
+import {ChildContext} from "../../../App";
 
 const SubChild22 = () => {
     const value_to_transfer = 'info and data';
-    useContext(value_to_transfer)
+    const {value, setValue} = useContext(ChildContext)
+
+    useEffect(() => {
+        setValue(value_to_transfer)
+    }, [])
+
     return (
         <div>
-            <h1>SubChild2_2</h1>
+            <h1>SubChild2_2 <i>{value}</i></h1>
         </div>
     );
 };
