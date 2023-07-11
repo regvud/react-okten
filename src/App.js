@@ -42,7 +42,6 @@ function App() {
     const [userId, setUserId] = useState(null)
     const [subChild, setSubChild] = useState(null)
 
-
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users').then(res => res.json()).then(users => setUsers(users))
     }, [])
@@ -50,12 +49,12 @@ function App() {
     console.log(ChildContext)
     return (
         <>
-            {/*<Users users={users} setUserId={setUserId}/>*/}
+            <Users users={users} setUserId={setUserId}/>
             {/*<UserPosts userId={userId} userPosts={userPosts} setUserPosts={setUserPosts}/>*/}
-            <ChildContext.Provider value={{subChild, setSubChild}}>
-                <Child1/>
-                <Child2/>
-            </ChildContext.Provider>
+            {/*<ChildContext.Provider value={{subChild, setSubChild}}>*/}
+            {/*    <Child1/>*/}
+            {/*    <Child2/>*/}
+            {/*</ChildContext.Provider>*/}
         </>
     );
 }
