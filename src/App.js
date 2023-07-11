@@ -50,11 +50,7 @@ function App() {
     return (
         <>
             <Users users={users} setUserId={setUserId}/>
-            {/*<UserPosts userId={userId} userPosts={userPosts} setUserPosts={setUserPosts}/>*/}
-            {/*<ChildContext.Provider value={{subChild, setSubChild}}>*/}
-            {/*    <Child1/>*/}
-            {/*    <Child2/>*/}
-            {/*</ChildContext.Provider>*/}
+            <UserPosts userId={userId} userPosts={userPosts} setUserPosts={setUserPosts}/>
         </>
     );
 }
