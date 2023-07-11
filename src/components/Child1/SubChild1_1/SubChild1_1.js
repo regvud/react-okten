@@ -1,9 +1,9 @@
 import React from 'react';
 
-const SubChild11 = ({subChild}) => {
+const SubChild11 = () => {
     return (
         <div>
-            <h1>SubChild1_1 {subChild}</h1>
+            <h1>SubChild1_1 </h1>
         </div>
     );
 };
