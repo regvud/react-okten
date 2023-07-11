@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import Users from "./components/Users/Users";
 
 // property drill
@@ -23,7 +23,6 @@ function App() {
     return (
         <>
             <Users users={users}/>
-            {/*<UserPosts userId={userId} userPosts={userPosts} setUserPosts={setUserPosts}/>*/}
         </>
     );
 }
