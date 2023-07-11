@@ -1,6 +1,8 @@
 import './App.css';
 import {useEffect, useState} from "react";
 import Users from "./components/Users/Users";
+import UserPostComponent from "./components/UserPosts/UserPostComponent";
+import UserPosts from "./components/UserPosts/UserPosts";
 
 // property drill
 
@@ -33,13 +35,20 @@ import Users from "./components/Users/Users";
 
 function App() {
     const [users, setUsers] = useState([])
+    const [userPosts, setUserPosts] = useState([])
+    const [userId, setUserId] = useState(null)
+
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users').then(res => res.json()).then(users => setUsers(users))
     }, [])
 
+
     return (
         <>
-            <Users users={users}/>
+            <Users users={users} setUserId={setUserId}/>
+            <UserPosts userId={userId} userPosts={userPosts} setUserPosts={setUserPosts}/>
+            {console.log(userId)}
+            {console.log(userPosts)}
         </>
     );
 }
