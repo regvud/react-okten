@@ -54,7 +54,7 @@ function App() {
             {/*<ChildContext.Provider value={{subChild, setSubChild}}>*/}
             {/*    <Child1/>*/}
             {/*    <Child2/>*/}
-            {/*</ChildContext.Provider>*/}
+            {/*</ChildContext.Provider>*/}.
         </>
     );
 }
