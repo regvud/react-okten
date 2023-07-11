@@ -1,17 +1,14 @@
 import React from 'react';
-import UserDetails from "./UserComponents/UserDetails";
-import UserAddress from "./UserComponents/UserAddress";
-import Company from "./UserComponents/Company";
-import styles from './UserComponents/Users.module.css'
+import styles from './Users.module.css'
 
 const User = ({user, setUserId}) => {
-    const {id, email, name, username, address, company} = user
+    const {id, email, name} = user
     return (
         <div className={styles.block}>
-            <UserDetails id={id} email={email} name={name} username={username}/>
-            <UserAddress address={address}/>
-            <Company company={company}/>
-            <button onClick={() => setUserId(id)}>Show Posts</button>
+            <h4 className={styles.sub}>ID: {id}</h4>
+            <h4 className={styles.sub}>Name: {name}</h4>
+            <h4 className={styles.sub}>Email: {email}</h4>
+            <button onClick={() => setUserId(id)} className={styles.button}>Show Posts</button>
         </div>
     );
 };
