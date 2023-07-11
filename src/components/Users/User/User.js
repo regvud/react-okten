@@ -2,11 +2,12 @@ import React from 'react';
 import UserDetails from "./UserDetails";
 import UserAddress from "./UserAddress";
 import Company from "./Company";
+import styles from './Users.module.css'
 
 const User = ({user, setUserId}) => {
     const {id, email, name, username, address, company} = user
     return (
-        <div>
+        <div className={styles.block}>
             <UserDetails id={id} email={email} name={name} username={username}/>
             <UserAddress address={address}/>
             <Company company={company}/>

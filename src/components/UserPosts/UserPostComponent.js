@@ -1,9 +1,9 @@
 import React from 'react';
-
+import styles from './UserPosts.module.css'
 const UserPostComponent = ({post}) => {
     const {userId, id, title, body} = post
     return (
-        <div>
+        <div className={styles.block}>
             <h3>userid: {userId}</h3>
             <h3>id: {id}</h3>
             <h3>title: {title}</h3>
