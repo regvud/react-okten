@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 
+// Зробити компонент, в якому буде форма, за допомоги якої можливо створити нового юзера постовим запитом на http://jsonplaceholder.typicode.com/users
+
 const UserFormComponent = () => {
     const [formValues, setFormValues] = useState({
         id: '',
@@ -14,17 +16,15 @@ const UserFormComponent = () => {
     // console.log(formValues)
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const response = await fetch(`https://jsonplaceholder.typicode.com/users`, {
+        const response = await fetch(`http://jsonplaceholder.typicode.com/users`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },
-            body: JSON.stringify({
-                name: formValues.name,
-                username: formValues.username,
-                email: formValues.email
-            })
-        });
+            body: JSON.stringify(formValues)
+        })
+            // .then(res => res.json())
+            // .then(res => console.log(res))
 
         const result = await response.json()
         console.log(result)
