@@ -4,21 +4,31 @@ const UserFormComponent = () => {
     const [formValues, setFormValues] = useState({
         id: '',
         name: '',
-        username: ''
+        username: '',
+        email: '',
+        address: '',
+        phone: '',
+        website: '',
+        company: ''
     })
-    console.log(formValues)
+    // console.log(formValues)
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const response = await fetch(`https://jsonplaceholder.typicode.com/users/${formValues.id}`, {
+        const response = await fetch(`https://jsonplaceholder.typicode.com/users`, {
             method: 'POST',
             headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json"
+                'Content-type': 'application/json; charset=UTF-8',
             },
-            body: JSON.stringify(formValues)
+            body: JSON.stringify({
+                name: formValues.name,
+                username: formValues.username,
+                email: formValues.email
+            })
         });
 
-        return response.json()
+        const result = await response.json()
+        console.log(result)
+        return result
     }
 
     const handleChange = (e, key) => {
@@ -69,6 +79,26 @@ const UserFormComponent = () => {
                 <label>
                     <input
                         type="text" value={formValues.username} onChange={(e) => handleChange(e, 'username')}/>
+                </label>
+                <label>
+                    <input
+                        type="text" value={formValues.email} onChange={(e) => handleChange(e, 'email')}/>
+                </label>
+                <label>
+                    <input
+                        type="text" value={formValues.address} onChange={(e) => handleChange(e, 'address')}/>
+                </label>
+                <label>
+                    <input
+                        type="text" value={formValues.phone} onChange={(e) => handleChange(e, 'phone')}/>
+                </label>
+                <label>
+                    <input
+                        type="text" value={formValues.website} onChange={(e) => handleChange(e, 'website')}/>
+                </label>
+                <label>
+                    <input
+                        type="text" value={formValues.company} onChange={(e) => handleChange(e, 'company')}/>
                 </label>
                 <button type="submit">Submit</button>
             </form>
