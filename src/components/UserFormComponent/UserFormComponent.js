@@ -5,7 +5,7 @@ import React, {useState} from 'react';
 // create server!!!!!!!!!!!
 const UserFormComponent = () => {
     const [formValues, setFormValues] = useState({
-        id: '',
+        // id: '',
         name: '',
         username: '',
         email: '',
@@ -17,15 +17,15 @@ const UserFormComponent = () => {
     // console.log(formValues)
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const response = await fetch(`http://jsonplaceholder.typicode.com/users`, {
+        const response = await fetch('https://jsonplaceholder.typicode.com/users', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },
             body: JSON.stringify(formValues)
         })
-            // .then(res => res.json())
-            // .then(res => console.log(res))
+        // .then(res => res.json())
+        // .then(res => console.log(res))
 
         const result = await response.json()
         console.log(result)
@@ -70,9 +70,9 @@ const UserFormComponent = () => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input type="text" value={formValues.id} onChange={(e) => handleChange(e, 'id')}/>
-                <label>
-                </label>
+                {/*<label>*/}
+                {/*    <input type="text" value={formValues.id} onChange={(e) => handleChange(e, 'id')}/>*/}
+                {/*</label>*/}
                 <label>
                     <input
                         type="text" value={formValues.name} onChange={(e) => handleChange(e, 'name')}/>
