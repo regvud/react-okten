@@ -2,13 +2,20 @@ import React, {useState} from 'react';
 import {useEffect} from "react";
 import User from "./UserFormComponent/User";
 
-const Users = ({users, setUsers, userOnSave}) => {
+const Users = ({users, setUsers, newUser}) => {
 
-    useEffect((userOnSave) => {
+    useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(value => value.json())
-            .then(users => setUsers(users))
-    }, [userOnSave])
+            .then(apiUsers => {
+                if (newUser !== null) {
+                    setUsers([...apiUsers, newUser])
+                } else {
+                    setUsers([...apiUsers])
+                }
+            })
+    }, [newUser])
+    // console.log(users)
 
     return (
         <div>
