@@ -13,8 +13,13 @@ const Users = () => {
     return (
         <div>
             {users.map((user, id) => {
-                <User user={user} key={id}/>
+                return (
+                    <>
+                        <User user={user} key={id}/>
+                    </>
+                )
             })}
+
         </div>
     );
 };
