@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 
 // create server!!!!!!!!!!!
 const UserFormComponent = () => {
-    const [formValues, setFormValues] = useState({
+    export const [formValues, setFormValues] = useState({
         // id: '',
         name: '',
         username: '',
