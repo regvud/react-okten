@@ -2,18 +2,8 @@ import React, {useState} from 'react';
 
 // Зробити компонент, в якому буде форма, за допомоги якої можливо створити нового юзера постовим запитом на http://jsonplaceholder.typicode.com/users
 
-// create server!!!!!!!!!!!
-const UserFormComponent = () => {
-    export const [formValues, setFormValues] = useState({
-        // id: '',
-        name: '',
-        username: '',
-        email: '',
-        address: '',
-        phone: '',
-        website: '',
-        company: ''
-    })
+const UserFormComponent = ({formValues, setFormValues}) => {
+
     // console.log(formValues)
     const handleSubmit = async (e) => {
         e.preventDefault()
