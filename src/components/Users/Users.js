@@ -2,14 +2,13 @@ import React, {useState} from 'react';
 import {useEffect} from "react";
 import User from "./UserFormComponent/User";
 
-const Users = ({formValues}) => {
-    const [users, setUsers] = useState([])
+const Users = ({users, setUsers, userOnSave}) => {
 
-    useEffect(() => {
+    useEffect((userOnSave) => {
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(value => value.json())
             .then(users => setUsers(users))
-    }, [formValues])
+    }, [userOnSave])
 
     return (
         <div>
