@@ -20,7 +20,7 @@ function App() {
     return (
         <>
             <UserFormComponent formValues={formValues} setFormValues={setFormValues}/>
-            <Users/>
+            <Users formValues={formValues}/>
         </>
     );
 }
