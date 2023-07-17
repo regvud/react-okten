@@ -1,18 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {useForm} from "react-hook-form";
 
-const CommentForm = () => {
+const CommentForm = ({setComments}) => {
     const {register, reset, handleSubmit} = useForm();
 
-
-    // <h4>{postId}</h4>
-    // <h4>{id}</h4>
-    // <h4>{name}</h4>
-    // <h4>{email}</h4>
-    // <h4>{body}</h4>
-
     const save = (user) => {
-        console.log(user)
+        setComments(prev => [...prev, user])
     }
 
     return (
