@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Comments from "../Comments";
+import CommentForm from "../CommentForm/CommentForm";
 
 const CommentsContainer = () => {
     const [comments, setComments] = useState([])
@@ -18,10 +19,12 @@ const CommentsContainer = () => {
                 .then(value => value.json())
                 .then(comments => console.log(comments))
         })
+
     }
     return (
         <div>
-            <Comments setComments={setComments} comments={comments} handleSubmit={handleSubmit}/>
+            <CommentForm handleSubmit={handleSubmit}/>
+            <Comments setComments={setComments} comments={comments}/>
         </div>
     );
 };
