@@ -8,7 +8,17 @@ const CommentsContainer = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-
+        useEffect(() => {
+            fetch('https://jsonplaceholder.typicode.com/comments', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'Application/json'
+                },
+                body: JSON.stringify(comments)
+            })
+                .then(value => value.json())
+                .then(comments => console.log(comments))
+        }, [])
 
     }
     return (
