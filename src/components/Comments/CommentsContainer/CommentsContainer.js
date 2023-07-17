@@ -5,22 +5,20 @@ import CommentForm from "../CommentForm/CommentForm";
 const CommentsContainer = () => {
     const [comments, setComments] = useState([])
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-
-        useEffect(() => {
-            fetch('https://jsonplaceholder.typicode.com/comments', {
-                method: 'POST',
-                headers: {
-                    'content-type': 'Application/json'
-                },
-                body: JSON.stringify(comments)
-            })
-                .then(value => value.json())
-                .then(comments => console.log(comments))
-        }, [])
-
-    }
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault()
+    //
+    //     await fetch('https://jsonplaceholder.typicode.com/comments', {
+    //         method: 'POST',
+    //         headers: {
+    //             'content-type': 'Application/json'
+    //         },
+    //         body: JSON.stringify(comments)
+    //     })
+    //         .then(value => value.json())
+    //         .then(comments => console.log(comments))
+    //
+    // }
     return (
         <div>
             <CommentForm handleSubmit={handleSubmit}/>
