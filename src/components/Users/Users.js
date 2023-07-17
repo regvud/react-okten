@@ -1,41 +1,36 @@
 import React from 'react';
 import {useEffect} from "react";
 import User from "./UserFormComponent/User";
+import user from "./UserFormComponent/User";
 
-const Users = ({users, setUsers, newUser, setIncrementId, incrementId}) => {
+const Users = ({users, setUsers, newUsers, setIncrementId, setApiUsers, incrementId}) => {
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(value => value.json())
             .then(apiUsers => {
-                setUsers(apiUsers)
+                setApiUsers(apiUsers)
 
-
-                // плохая верификация
-                if (newUser && newUser.name !== '') {
-                    setUsers(prevState => [...prevState, newUser])
+                if (newUsers) {
+                    setUsers([...apiUsers, ...newUsers])
                 }
             })
-    }, [newUser])
-    // console.log(users)
+    }, [newUsers])
 
+    setIncrementId(users.length)
     return (
         <div>
-            {users.map((user, id) => {
-
-
-
-                // сделать что-нибудь
-                setIncrementId(id + 1)
+            {users?.map((user, id) => {
                 return (
                     <>
-                        <User user={user} key={id}/>
+                        <User user={user} key={id} incrementId={incrementId}/>
                     </>
                 )
             })}
 
         </div>
-    );
+    )
+        ;
 };
 
 export default Users;

@@ -4,12 +4,11 @@ import Users from "../Users";
 
 const UsersContainer = () => {
     const [users, setUsers] = useState([])
-    const [newUser, setNewUser] = useState(null)
+    const [newUsers, setNewUsers] = useState([])
+    const [apiUsers, setApiUsers] = useState(null)
     const [incrementId, setIncrementId] = useState(null)
-
-    //forms functions
-
     const [formValues, setFormValues] = useState({
+        id: incrementId,
         name: '',
         username: '',
         email: '',
@@ -18,6 +17,9 @@ const UsersContainer = () => {
         website: '',
         company: ''
     })
+
+
+    //forms functions
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -29,9 +31,16 @@ const UsersContainer = () => {
             body: JSON.stringify(formValues)
         })
             .then(res => res.json())
-            .then(user => setNewUser(user))
+            .then(user => {
+                if (formValues.name === '' || formValues.email === '') {
+                    throw e
+                } else {
+                    console.log(incrementId)
+                    setNewUsers(prevState => [...prevState, user])
+                }
+            })
+            .catch(e => console.error(`${e} Incorrect input: Every line is required.`))
     }
-    console.log(users);
 
     const handleChange = (e, key) => {
         e.preventDefault()
@@ -49,10 +58,12 @@ const UsersContainer = () => {
             <Users
                 users={users}
                 setUsers={setUsers}
-                newUser={newUser}
+                newUsers={newUsers}
                 formValues={formValues}
                 setIncrementId={setIncrementId}
-                incrementId={incrementId}/>
+                incrementId={incrementId}
+                setApiUsers={setApiUsers}
+                setNewUsers={setNewUsers}/>
         </>
     );
 }
