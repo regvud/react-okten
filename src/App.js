@@ -1,7 +1,5 @@
 import './App.css';
-import Users from "./components/Users/Users";
-import UserForm from "./components/Users/UserForm/UserForm";
-import UserContainer from "./components/Users/UserContainer/UserContainer";
+import UserContainer from "./components/Users/UserContainer";
 
 // Реалізувати, використовуючи useForm хук, а також сервіс axios наступне. Всі запити винести в сервісний рівень
 // 1.

@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import UserForm from "../UserForm/UserForm";
-import Users from "../Users";
+import UserForm from "./UserForm/UserForm";
 
 const UserContainer = () => {
     const [users, setUsers] = useState([]);
@@ -8,7 +7,6 @@ const UserContainer = () => {
     return (
         <div>
             <UserForm setUsers={setUsers}/>
-            <Users users={users} setUsers={setUsers}/>
         </div>
     );
 };
