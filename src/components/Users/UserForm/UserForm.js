@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useForm} from "react-hook-form";
 import ApiServices from "../../../services/ApiServices";
 
@@ -11,11 +11,12 @@ const UserForm = ({setUsers}) => {
         const postUser = JSON.parse(localStorage.getItem('postUser'))
         console.log(postUser)
         setUsers(prev => [...prev, postUser])
-    };
+
+    }
 
     return (
         <form onSubmit={handleSubmit(save)}>
-            <label>name<input type="text" {...register('name')} onChange={}/></label>
+            <label>name<input type="text" {...register('name')}/></label>
             <label>username<input type="text" {...register('username')}/></label>
             <label>email<input type="text" {...register('email')}/></label>
             <label>address.street<input type="text" {...register('address.street')}/></label>

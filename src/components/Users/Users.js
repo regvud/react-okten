@@ -3,13 +3,13 @@ import ApiServices from "../../services/ApiServices";
 import UserComponent from "./UserComponent/UserComponent";
 
 const Users = ({users, setUsers}) => {
-    ApiServices.getUsers()
-    const apiUsers = JSON.parse(localStorage.getItem('users'))
-
 
     useEffect(() => {
+        ApiServices.getUsers()
+        const apiUsers = JSON.parse(localStorage.getItem('users'))
         setUsers(apiUsers)
     }, [])
+
     console.log(users)
     return (
         <div>
