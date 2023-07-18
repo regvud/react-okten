@@ -1,19 +1,22 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useForm} from "react-hook-form";
 import ApiServices from "../../../services/ApiServices";
 
 
 const UserForm = ({setUsers}) => {
     const {register, handleSubmit} = useForm();
-
+    const [formUser, setFormUser] = useState(null);
     const save = (user) => {
         ApiServices.postUser(user)
         const postUser = JSON.parse(localStorage.getItem('postUser'))
-        console.log(postUser)
-        setUsers(prev => [...prev, postUser])
+        setFormUser(postUser)
+        console.log(formUser)
 
     }
 
+    // useEffect(() => {
+    //     setUsers(prev => [...prev, formUser])
+    // }, [])
     return (
         <form onSubmit={handleSubmit(save)}>
             <label>name<input type="text" {...register('name')}/></label>
