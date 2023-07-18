@@ -1,11 +1,12 @@
 import React from 'react';
 import {useForm} from "react-hook-form";
+import axios from "axios";
 
 
-const UserForm = () => {
+const UserForm = ({setUsers}) => {
     const {register, handleSubmit} = useForm();
     const save = (data) => {
-        console.log(data)
+        setUsers(prev => [...prev, data.data])
     };
 
     return (
