@@ -5,6 +5,6 @@ const cars = '/cars';
 export const urls = {
     cars: {
         base: cars,
-        byId: (id) => `${cars}${id}`
+        byId: (id) => `${cars}/${id}`
     }
 }
