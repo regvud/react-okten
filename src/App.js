@@ -1,13 +1,14 @@
 import './App.css';
+import CarsContainer from "./components/Cars/CarsContainer/CarsContainer";
 
 
 function App() {
 
-  return (
-      <>
-
-      </>
-  );
+    return (
+        <>
+            <CarsContainer/>
+        </>
+    );
 }
 
 export default App;
