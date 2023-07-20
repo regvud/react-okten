@@ -1,15 +1,12 @@
 import React from 'react';
 import {useForm} from "react-hook-form";
+import {carService} from "../../../services/carService";
 
-const CarForm = () => {
+const CarForm = ({setCars}) => {
     const {register, reset, handleSubmit} = useForm();
 
-    const onSubmit = (e) => {
-        e.preventDefault()
-    }
-
-    const save = (car) => {
-        console.log(car)
+    const onSubmit = (car) => {
+        carService.createCar(car).then(car => setCars(prev=>[...prev, car]))
     }
 
     return (
