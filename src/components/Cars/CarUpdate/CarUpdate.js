@@ -2,18 +2,12 @@ import React from 'react';
 import {useForm} from "react-hook-form";
 import {carService} from "../../../services/carService";
 
-const CarForm = ({setCars, setTrigger}) => {
+const CarUpdate = (id, car) => {
     const {register, reset, handleSubmit} = useForm();
 
-    const onSubmit = async (car) => {
-        try {
-            await carService.createCar(car).then(car => setCars(prev => [...prev, car]))
-        } catch (e) {
-            console.log(e.response.data)
-        } finally {
-            setTrigger(prev => !prev)
-            reset()
-        }
+    const onSubmit = (car) => {
+        carService.updateCar(id, car).then(car => console.log(id, car))
+        reset()
     }
 
     return (
@@ -26,4 +20,4 @@ const CarForm = ({setCars, setTrigger}) => {
     );
 };
 
-export default CarForm;
+export default CarUpdate;
