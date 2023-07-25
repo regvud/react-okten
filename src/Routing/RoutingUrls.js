@@ -1,6 +1,6 @@
 export const RoutingUrls = {
     MAIN: '/',
-    USERS: '/todos',
-    POSTS: '/albums',
+    TODOS: '/todos',
+    ALBUMS: '/albums',
     COMMENTS: '/comments'
 }

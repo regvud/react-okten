@@ -1,16 +1,24 @@
-import React, {useEffect, useState} from 'react';
-import axios from "axios";
+import React, {useEffect} from 'react';
 import CommentComponent from "./Comment/CommentComponent";
+import {commentsServices} from "../../services/commentsServices";
 
-const Comments = () => {
-    const [comments, setComments] = useState(null);
+const Comments = ({comments, setComments, post, showPost, trigger, setTrigger, setPost}) => {
+
     useEffect(() => {
-        axios.get('https://jsonplaceholder.typicode.com/comments').then(({data}) => setComments(data))
+        commentsServices.getAll().then(({data}) => setComments(data))
     }, [])
-
     return (
         <div>
-            {comments?.map((comment, id) => (<CommentComponent comment={comment} key={id}/>))}
+            {comments?.map((comment, id) => (
+                <CommentComponent
+                    comment={comment}
+                    key={id}
+                    setPost={setPost}
+                    post={post}
+                    setTrigger={setTrigger}
+                    trigger={trigger}
+                    showPost={showPost}
+                />))}
         </div>
     );
 };
