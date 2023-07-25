@@ -1,5 +1,5 @@
 import {createBrowserRouter} from "react-router-dom";
-import Root from "../AppRoutes/Root";
+import Root from "./Root";
 import {RoutingUrls} from "./RoutingUrls";
 import TodosContainer from "../components/Todos/TodosContainer/TodosContainer";
 import CommentsContainer from "../components/Comments/Comment/CommentsContainer";

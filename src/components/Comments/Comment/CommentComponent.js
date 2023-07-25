@@ -6,13 +6,12 @@ const CommentComponent = ({comment}) => {
     const {postId, id, name, email, body} = comment
     const [post, setPost] = useState(null);
     const showPost = async (postId) => {
-        try {
-            await axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}`).then(({data}) => setPost(data))
-        } catch (e) {
-            console.log(e.response.data);
-        }
+        // try {
+        //     await axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}`).then(({data}) => setPost(data))
+        // } catch (e) {
+        //     console.log(e.response.data);
+        // }
     }
-    console.log(post)
     return (
         <div>
             <hr/>

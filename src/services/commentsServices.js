@@ -1,0 +1,4 @@
+
+const commentsServices = {
+    getAll: () => apiServices.
+}
