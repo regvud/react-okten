@@ -2,6 +2,9 @@ import React from "react";
 import axios from "axios";
 import PostComp from "./Post/PostComp";
 
+
+// отримати пости та вивести їх використовуючи класові копмоненти
+
 class Posts extends React.Component {
     constructor(props) {
         super(props);

@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 import Comment from "./Comment/Comment";
 
+// отримати comments та вивести їх використовуючи класові копмоненти
+
 class Comments extends React.Component {
     constructor(props) {
         super(props);

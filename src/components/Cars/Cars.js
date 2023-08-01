@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import CarsComp from "./CarsComp/CarsComp";
 
+// отримати автівки та вивести їх використовуючи класові копмоненти
 class Cars extends React.Component {
     constructor(props) {
         super(props);
