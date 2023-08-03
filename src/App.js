@@ -1,13 +1,21 @@
 import './App.css';
 import TestUseMemo from "./components/TestUseMemo";
 import {useState} from "react";
+import TestUseCallback from "./components/TestUseCallback";
+import TestUseToggle from "./components/TestUseToggle";
+import TestUseFetch from "./components/TestUseFetch";
 
 
 function App() {
-    const [data, setData] = useState([1, 2, 3])
+    const [data, setData] = useState('')
     return (
         <>
-            <TestUseMemo data={data}/>
+            {/*// Створити  компоненту TestUseMemo в та викликати її в Апп*/}
+
+            {/*<TestUseMemo data={data} setData={setData}/>*/}
+            {/*<TestUseCallback data={data} setData={setData}/>*/}
+            {/*<TestUseToggle/>*/}
+            <TestUseFetch/>
         </>
     );
 }
