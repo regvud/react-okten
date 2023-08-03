@@ -14,8 +14,8 @@ function App() {
 
             {/*<TestUseMemo data={data} setData={setData}/>*/}
             {/*<TestUseCallback data={data} setData={setData}/>*/}
-            {/*<TestUseToggle/>*/}
-            <TestUseFetch/>
+            <TestUseToggle/>
+            {/*<TestUseFetch/>*/}
         </>
     );
 }
