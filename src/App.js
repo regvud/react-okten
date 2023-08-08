@@ -4,6 +4,7 @@ import {useState} from "react";
 import TestUseCallback from "./components/TestUseCallback";
 import TestUseToggle from "./components/TestUseToggle";
 import TestUseFetch from "./components/TestUseFetch";
+import TestUseArray from "./components/TestUseArray";
 
 
 function App() {
@@ -14,8 +15,9 @@ function App() {
 
             {/*<TestUseMemo data={data} setData={setData}/>*/}
             {/*<TestUseCallback data={data} setData={setData}/>*/}
-            <TestUseToggle/>
+            {/*<TestUseToggle/>*/}
             {/*<TestUseFetch/>*/}
+            <TestUseArray/>
         </>
     );
 }
