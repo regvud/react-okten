@@ -5,16 +5,15 @@ import Episode from "./Episode/Episode";
 
 const Episodes = () => {
     const dispatch = useDispatch();
-    const episodes = useSelector(state => state.episodes);
+    const {episodes} = useSelector(state => state.episodes);
 
     useEffect(() => {
         dispatch(episodesActions.allEpisodes())
     }, [dispatch]);
 
-
     return (
         <div>
-            {episodes?.map((episode, id) => <Episode key={id} episode={episode}/>)}
+            {episodes.map((eachEpisode, id) => <Episode key={id} eachEpisode={eachEpisode}/>)}
         </div>
     );
 };
