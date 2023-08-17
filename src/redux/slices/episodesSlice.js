@@ -3,15 +3,31 @@ import {episodesService} from "../../services/episodesService";
 
 const initialState = {
     episodes: [],
-    errors: null
+    errors: null,
+    prevPage: null,
+    nextPage: null,
+    episodeByID: null
 }
 
 const allEpisodes = createAsyncThunk(
     'episodesSlice/all',
-    async (_, thunkAPI) => {
+    async ({page}, thunkAPI) => {
         try {
-            const {data} = await episodesService.getAll()
-            return data.results
+            const {data} = await episodesService.getAll(page)
+            console.log(page);
+            return data
+        } catch (e) {
+            return thunkAPI.rejectWithValue(e.response.data)
+        }
+    }
+)
+
+const byID = createAsyncThunk(
+    'episodesSlice/byID',
+    async ({id}, thunkAPI) => {
+        try {
+            const {data} = await episodesService.byID(id)
+            return data
         } catch (e) {
             return thunkAPI.rejectWithValue(e.response.data)
         }
@@ -25,7 +41,12 @@ const episodesSlice = createSlice({
     extraReducers: builder =>
         builder
             .addCase(allEpisodes.fulfilled, (state, action) => {
-                state.episodes = action.payload
+                state.episodes = action.payload;
+                state.nextPage = action.payload.info.next
+                state.prevPage = action.payload.info.prev
+            })
+            .addCase(byID.fulfilled, (state, action) => {
+                state.episodeByID = action.payload
             })
 })
 
@@ -34,6 +55,7 @@ const {reducer: episodesReducer} = episodesSlice;
 
 const episodesActions = {
     allEpisodes,
+    byID
 }
 
 export {
