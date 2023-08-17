@@ -1,13 +1,14 @@
 import './App.css';
+import RickMortyContainer from "./components/RickMortyContainer/RickMortyContainer";
 
 
 function App() {
 
-  return (
-      <>
-
-      </>
-  );
+    return (
+        <>
+            <RickMortyContainer/>
+        </>
+    );
 }
 
 export default App;
