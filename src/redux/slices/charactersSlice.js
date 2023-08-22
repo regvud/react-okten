@@ -2,15 +2,29 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {charactersService} from "../../services/charactersService";
 
 const initialState = {
-    characters: [],
+    episodeCharacters: null,
     errors: null
 };
 
-const allCharacters = createAsyncThunk(
-    'charactersSlice/All',
-    async (_, thunkAPI) => {
+const getMultipleCharacters = createAsyncThunk(
+    'charactersSlice/getMultipleCharacters',
+    async ({charactersIDs}, thunkAPI) => {
         try {
-            const {data} = await charactersService.getAll()
+            console.log(charactersIDs);
+            const {data} = await charactersService.byIDs(charactersIDs)
+            return data && console.log(data)
+
+        } catch (e) {
+            thunkAPI.rejectWithValue(e.response.data)
+        }
+    }
+)
+
+const byID = createAsyncThunk(
+    'charactersSlice/All',
+    async ({id}, thunkAPI) => {
+        try {
+            const {data} = await charactersService.byID(id)
             return data
         } catch (e) {
             thunkAPI.rejectWithValue(e.response.data)
@@ -25,14 +39,14 @@ const charactersSlice = createSlice({
     reducers: {},
     extraReducers: builder =>
         builder
-            .addCase(allCharacters.fulfilled, (state, action) => {
-                state.characters = action.payload.results
+            .addCase(getMultipleCharacters.fulfilled, (state, action) => {
+                state.episodeCharacters = action.payload
             })
 })
 
 const {reducer: charactersReducer} = charactersSlice;
 const charactersActions = {
-    allCharacters
+    getMultipleCharacters
 };
 
 export {

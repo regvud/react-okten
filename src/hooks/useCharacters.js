@@ -1,12 +1,13 @@
 import {useEffect} from 'react';
 import {useDispatch} from "react-redux";
-import {charactersActions} from "../redux/slices/charactersSlice";
+import {charactersActions} from "../redux";
 
-export const useCharacters = () => {
+export const useCharacters = (ids) => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(charactersActions.allCharacters())
-    }, []);
+        dispatch(charactersActions.getMultipleCharacters({ids}))
+    }, [dispatch]);
+
 };
 
