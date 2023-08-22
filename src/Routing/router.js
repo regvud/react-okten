@@ -1,8 +1,8 @@
 import {createBrowserRouter} from "react-router-dom";
-import {Episode, Layout} from "../components";
+import {Layout} from "../components";
 import RickMortyContainer from "../components/RickMortyContainer/RickMortyContainer";
 import React from "react";
-import Character from "../components/RickMortyContainer/Characters/Character/Character";
+import CharactersContainer from "../components/RickMortyContainer/Characters/CharactersContainer";
 
 const router = createBrowserRouter([
     {
@@ -10,18 +10,12 @@ const router = createBrowserRouter([
         element: <Layout/>,
         children: [
             {
-                path: 'episodes/',
-                element: <RickMortyContainer/>,
-                children: [
-                    {
-                        path: ':id',
-                        element: <Episode/>
-                    }
-                ]
+                index: true,
+                element: <RickMortyContainer/>
             },
             {
                 path: 'characters/',
-                element: <Character/>
+                element: <CharactersContainer/>
             }
         ]
     }

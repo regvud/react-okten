@@ -14,7 +14,7 @@ const Episodes = ({page}) => {
 
     return (
         <div className={styles.episodes}>
-            {episodes.results?.map((eachEpisode, id) => <Episode key={id} eachEpisode={eachEpisode}/>)}
+            {episodes.results?.map((eachEpisode, id) => <Episode key={id} eachEpisode={eachEpisode} page={page}/>)}
         </div>
     );
 };

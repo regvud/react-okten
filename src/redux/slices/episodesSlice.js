@@ -37,7 +37,7 @@ const episodesSlice = createSlice({
     name: "episodesSlice",
     initialState,
     reducers: {},
-    extraReducers: builder =>
+    extraReducers: builder => {
         builder
             .addCase(allEpisodes.fulfilled, (state, action) => {
                 state.episodes = action.payload;
@@ -47,11 +47,10 @@ const episodesSlice = createSlice({
             .addCase(byID.fulfilled, (state, action) => {
                 state.episodeByID = action.payload
             })
+    }
 })
 
 const {reducer: episodesReducer} = episodesSlice;
-
-
 const episodesActions = {
     allEpisodes,
     byID
