@@ -10,7 +10,6 @@ interface IProps extends PropsWithChildren {
 
 const CarForm: FC<IProps> = () => {
     const {reset, register, setValue, handleSubmit} = useForm<ICar>();
-    // const [id, setId] = useState<number>(null)
     const {carForUpdate} = useAppSelector(state => state.cars);
     const dispatch = useAppDispatch();
 
@@ -18,7 +17,6 @@ const CarForm: FC<IProps> = () => {
         setValue("price", carForUpdate.price)
         setValue("brand", carForUpdate.brand)
         setValue("year", carForUpdate.year)
-        // setId(carForUpdate.id)
     }
 
     const create: SubmitHandler<ICar> = async (car) => {
