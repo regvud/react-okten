@@ -1,11 +1,12 @@
-const baseURL = process.env.REACT
+const baseURL = process.env.REACT_APP_API
 const urls = {
     cars: {
         base: '/cars',
-        byID: (id): number => `${urls.cars.base}/${id}`
+        byID: (id: number): string => `${urls.cars.base}/${id}`
     }
 }
 
 export {
-    urls
+    urls,
+    baseURL
 }
