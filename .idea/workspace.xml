@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8f1fb56d-4dae-42ce-8214-91499882b994" name="Changes" comment="qwe" />
+    <list default="true" id="8f1fb56d-4dae-42ce-8214-91499882b994" name="Changes" comment="qwe">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Cars/Car/Car.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cars/Car/Car.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Cars/Car/CarForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cars/Car/CarForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Cars/Cars.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cars/Cars.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/CarPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/CarPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/slices/carSlice.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/slices/carSlice.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/store.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +24,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "customColor": "",
@@ -28,14 +43,34 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "leson14__TS__REPEAT",
+    "js.last.introduce.type": "CONST",
     "last_opened_file_path": "C:/Users/regvud/Desktop/projects",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "ts.external.directory.path": "C:\\coding\\react-okten\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -44,7 +79,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1692911370929</updated>
-      <workItem from="1692911373327" duration="61000" />
+      <workItem from="1692911373327" duration="4868000" />
     </task>
     <task id="LOCAL-00001" summary="qwe">
       <option name="closed" value="true" />
@@ -62,11 +97,54 @@
       <option name="project" value="LOCAL" />
       <updated>1692911419400</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="qwe">
+      <option name="closed" value="true" />
+      <created>1692911444530</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1692911444530</updated>
+    </task>
+    <task id="LOCAL-00004" summary="qwe">
+      <option name="closed" value="true" />
+      <created>1692911448994</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1692911448994</updated>
+    </task>
+    <task id="LOCAL-00005" summary="qwe">
+      <option name="closed" value="true" />
+      <created>1692911715827</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1692911715827</updated>
+    </task>
+    <task id="LOCAL-00006" summary="qwe">
+      <option name="closed" value="true" />
+      <created>1692911729863</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1692911729863</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="qwe" />

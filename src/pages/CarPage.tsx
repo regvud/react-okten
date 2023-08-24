@@ -1,12 +1,14 @@
 import React, {FC} from 'react';
+import Cars from "../components/Cars/Cars";
+import CarForm from "../components/Cars/Car/CarForm";
 
 const CarPage: FC = () => {
     return (
-        <div>
-            <h1>cars</h1>
-        </div>
+        <>
+            <CarForm/>
+            <Cars/>
+        </>
     );
 };
 
 export default CarPage;
-/////

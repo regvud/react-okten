@@ -13,9 +13,9 @@ const initialState: IState = {
     carForUpdate: null
 }
 
-const getAll = createAsyncThunk<void, ICar[]>(
+const getAll = createAsyncThunk<ICar[], void>(
     'carSlice/getAll',
-    async (data, {rejectWithValue}) => {
+    async (_, {rejectWithValue}) => {
         try {
             const {data} = await carService.getAll()
             return data
@@ -26,23 +26,76 @@ const getAll = createAsyncThunk<void, ICar[]>(
     }
 )
 
+const create = createAsyncThunk<void, ICar>(
+    'carSlice/create',
+    async (car, {rejectWithValue, dispatch}) => {
+        try {
+            await carService.create(car)
+            await dispatch(getAll())
+        } catch (e) {
+            const err = e as AxiosError
+            rejectWithValue(err.response.data)
+        }
+    }
+)
+
+const update = createAsyncThunk<void, { car: ICar, id: number }>(
+    'carSlice/update',
+    async ({car, id}, {rejectWithValue, dispatch}) => {
+        try {
+            await carService.updateByID(car, id)
+            await dispatch(getAll())
+        } catch (e) {
+            const err = e as AxiosError
+            rejectWithValue(err.response.data)
+        }
+    }
+)
+
+const remove = createAsyncThunk<void, number>(
+    'carSlice/remove',
+    async (id, {rejectWithValue, dispatch}) => {
+        try {
+            await carService.deleteByID(id)
+            await dispatch(getAll())
+        } catch (e) {
+            const err = e as AxiosError
+            rejectWithValue(err.response.data)
+        }
+    }
+)
+
+
 const carSlice = createSlice({
     name: 'carSlice',
     initialState,
     reducers: {
-        setCarForUpdate: (state, action: PayloadAction<ICar>) => {
-            state.carForUpdate = action.payload
+        setCarForUpdate: (state, action: PayloadAction<{ car: ICar }>) => {
+            state.carForUpdate = action.payload.car
         }
     },
-    extraReducers: {}
+    extraReducers: builder =>
+        builder
+            .addCase(getAll.fulfilled, (state, action) => {
+                state.cars = action.payload
+            })
+            .addCase(update.fulfilled, (state) => {
+                state.carForUpdate = null
+            })
+
 })
 
 const {reducer: carReducer, actions} = carSlice;
 
 const carActions = {
-    ...actions
+    ...actions,
+    getAll,
+    create,
+    update,
+    remove
 }
 
 export {
-    carReducer
+    carReducer,
+    carActions
 }
