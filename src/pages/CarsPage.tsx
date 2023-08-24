@@ -1,25 +1,24 @@
 import React, {FC, PropsWithChildren, useEffect, useState} from 'react';
 import Cars from "../components/Cars/Cars";
-import {ICar} from "../interfaces/carInterface";
-import {carService} from "../services/carService";
 import CarForm from "../components/Cars/Car/CarForm";
+import {carActions} from "../redux/slices/carsSlice";
+import {useAppDispatch} from "../hooks/reduxHooks";
 
 interface IProps extends PropsWithChildren {
 }
 
 const CarsPage: FC<IProps> = () => {
-    const [cars, setCars] = useState<ICar[]>([])
-    const [carForUpdate, setCarForUpdate] = useState<ICar>(null)
-    const [trigger, setTrigger] = useState<boolean>(null);
+
+    const dispatch = useAppDispatch()
 
     useEffect(() => {
-        carService.getAll().then(({data}) => setCars(data))
-    }, [trigger]);
+        dispatch(carActions.getAll())
+    }, [dispatch]);
 
     return (
         <>
-            <CarForm setTrigger={setTrigger} carForUpdate={carForUpdate} setCarForUpdate={setCarForUpdate}/>
-            <Cars cars={cars} setCarForUpdate={setCarForUpdate} setTrigger={setTrigger}/>
+            <CarForm/>
+            <Cars/>
         </>
     );
 };
