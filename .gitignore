@@ -3,10 +3,10 @@
 # dependencies
 /node_modules
 .idea/
+.idea/workspace.xml
 /.pnp
 .pnp.js
 
-#
 # testing
 /coverage
 
