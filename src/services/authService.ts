@@ -8,6 +8,7 @@ const accessToken = 'access'
 const refreshToken = 'refresh'
 
 const authService = {
+
     register(user: IAuth): TRes<IUser> {
         return apiService.post(urls.auth.register, user)
     },
