@@ -2,16 +2,19 @@ import {createAsyncThunk, createSlice, isFulfilled, isRejected} from "@reduxjs/t
 import {IAuth} from "../../interfaces/authInterface";
 import {AxiosError} from "axios";
 import {authService} from "../../services/authService";
+import {IUser} from "../../interfaces/userInterface";
 
 interface IState {
     errors: {
         username?: string[],
         detail?: string
-    }
+    },
+    me: IUser
 }
 
 const initialState: IState = {
-    errors: null
+    errors: null,
+    me: null
 }
 
 const registerUser = createAsyncThunk<void, { user: IAuth }>(
@@ -25,6 +28,19 @@ const registerUser = createAsyncThunk<void, { user: IAuth }>(
         }
     }
 )
+
+const loginUser = createAsyncThunk<IUser, { user: IAuth }>(
+    'authSlice/login',
+    async ({user}, {rejectWithValue}) => {
+        try {
+            return await authService.login(user)
+        } catch (e) {
+            const err = e as AxiosError
+            return rejectWithValue(err.response.data)
+        }
+    }
+)
+
 
 const authSlice = createSlice({
         name: 'authSlice',
@@ -44,7 +60,8 @@ const {reducer: authReducer, actions} = authSlice;
 
 const authActions = {
     ...actions,
-    registerUser
+    registerUser,
+    loginUser
 }
 
 export {
