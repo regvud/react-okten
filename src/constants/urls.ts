@@ -13,7 +13,7 @@ const urls = {
         login: auth,
         refresh: `${auth}/refresh`,
         register: users,
-        me: `${users}/me`
+        me: `${auth}/me`
     }
 }
 

@@ -1,9 +1,10 @@
-import {apiService} from "./apiService";
+import {apiService, TRes} from "./apiService";
 import {ICar} from "../interfaces/carInterface";
 import {urls} from "../constants/urls";
+import {IPagination} from "../interfaces/paginationInterface";
 
 const carService = {
-    getAll: () => apiService.get<ICar[]>(urls.cars.base),
+    getAll: (): TRes<IPagination<ICar>> => apiService.get(urls.cars.base),
     byID: (id: number) => apiService.get<ICar>(urls.cars.byID(id)),
     create: (data: ICar) => apiService.post<ICar>(urls.cars.base, data),
     deleteByID: (id: number) => apiService.delete<ICar>(urls.cars.byID(id)),

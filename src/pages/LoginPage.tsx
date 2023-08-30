@@ -22,7 +22,6 @@ const LoginPage = () => {
             <input type="text" placeholder={'username'} {...register('username')}/>
             <input type="text" placeholder={'password'} {...register('password')}/>
             <button>login</button>
-            <button></button>
             {errors && <span>{errors.detail}</span>}
         </form>
     );
