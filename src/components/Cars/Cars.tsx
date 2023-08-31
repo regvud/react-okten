@@ -2,7 +2,6 @@ import React, {FC, PropsWithChildren, useEffect, useState} from 'react';
 import Car from "./Car/Car";
 import {useAppDispatch, useAppSelector} from "../../hooks/reduxHooks";
 import {carActions} from "../../redux/slices/carsSlice";
-import {useParams} from "react-router-dom";
 
 interface IProps extends PropsWithChildren {
     page: number,
