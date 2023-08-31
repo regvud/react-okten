@@ -6,12 +6,14 @@ import {IPagination} from "../../interfaces/paginationInterface";
 
 interface IState {
     cars: ICar[],
-    carForUpdate: ICar
+    carForUpdate: ICar,
+    page: number
 }
 
 const initialState: IState = {
     cars: [],
     carForUpdate: null,
+    page: null
 }
 
 const getAll = createAsyncThunk<IPagination<ICar>, { page: number }>(
@@ -74,6 +76,12 @@ const carSlice = createSlice({
     reducers: {
         setCarForUpdate: (state, action: PayloadAction<{ car: ICar }>) => {
             state.carForUpdate = action.payload.car
+        },
+        incrementPage: (state) => {
+            state.page += 1
+        },
+        decrementPage: (state) => {
+            state.page -= 1
         }
     },
     extraReducers: builder =>

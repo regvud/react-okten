@@ -1,30 +1,41 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import Cars from "../components/Cars/Cars";
 import CarForm from "../components/Cars/Car/CarForm";
+import {useLocation, useSearchParams} from "react-router-dom";
+import {useAppDispatch, useAppSelector} from "../hooks/reduxHooks";
+import {carActions} from "../redux/slices/carsSlice";
 
 
 const CarsPage: FC = () => {
-    const [page, setPage] = useState(1)
-    const [trigger, setTrigger] = useState(false)
+    const [, setParams] = useSearchParams();
+    const {page} = useAppSelector(state => state.cars);
+    const dispatch = useAppDispatch();
+    const location = useLocation();
     console.log(page)
+    // const pagination = (action: string) => {
+    //     if (action === 'prev') {
+    //         dispatch(carActions.decrementPage())
+    //         setParams({page: page.toString()})
+    //
+    //     } else {
+    //         dispatch(carActions.incrementPage())
+    //         setParams({page: page.toString()})
+    //     }
+    //
+    // }
 
-    const pagination = (action: string): void => {
-        if (action === 'prev') {
-            setPage(prevState => prevState--)
-            setTrigger(prevState => !prevState)
-        } else {
-            setPage(prevState => prevState++)
-            setTrigger(prevState => !prevState)
-        }
+    if (page !== null) {
+        setParams({page: page.toString()})
     }
+
     return (
         <>
             <CarForm/>
             <div>
-                <button onClick={() => pagination('prev')}>prev</button>
-                <button onClick={() => pagination('next')}>next</button>
+                <button onClick={() => dispatch(carActions.decrementPage())}>prev</button>
+                <button onClick={() => dispatch(carActions.incrementPage())}>next</button>
             </div>
-            <Cars page={page} trigger={trigger}/>
+            <Cars page={page}/>
         </>
     );
 };
