@@ -1,22 +1,30 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC, useState} from 'react';
 import Cars from "../components/Cars/Cars";
 import CarForm from "../components/Cars/Car/CarForm";
-import {useAppDispatch, useAppSelector} from "../hooks/reduxHooks";
-import {carActions} from "../redux/slices/carsSlice";
 
 
 const CarsPage: FC = () => {
-    const dispatch = useAppDispatch();
-    const {cars} = useAppSelector(state => state.cars)
+    const [page, setPage] = useState(1)
+    const [trigger, setTrigger] = useState(false)
+    console.log(page)
 
-    useEffect(() => {
-        dispatch(carActions.getAll())
-    }, []);
-
+    const pagination = (action: string): void => {
+        if (action === 'prev') {
+            setPage(prevState => prevState--)
+            setTrigger(prevState => !prevState)
+        } else {
+            setPage(prevState => prevState++)
+            setTrigger(prevState => !prevState)
+        }
+    }
     return (
         <>
             <CarForm/>
-            <Cars cars={cars}/>
+            <div>
+                <button onClick={() => pagination('prev')}>prev</button>
+                <button onClick={() => pagination('next')}>next</button>
+            </div>
+            <Cars page={page} trigger={trigger}/>
         </>
     );
 };

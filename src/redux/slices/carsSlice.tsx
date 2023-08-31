@@ -11,14 +11,15 @@ interface IState {
 
 const initialState: IState = {
     cars: [],
-    carForUpdate: null
+    carForUpdate: null,
 }
 
-const getAll = createAsyncThunk<IPagination<ICar>, void>(
+const getAll = createAsyncThunk<IPagination<ICar>, { page: number }>(
     'carSlice/getAll',
-    async (_, {rejectWithValue}) => {
+    async ({page}, {rejectWithValue}) => {
         try {
-            const {data} = await carService.getAll()
+            const {data} = await carService.getAll(page)
+            console.log(data)
             return data
         } catch (e) {
             const err = e as AxiosError
@@ -32,7 +33,7 @@ const create = createAsyncThunk<void, ICar>(
     async (car, {rejectWithValue, dispatch}) => {
         try {
             await carService.create(car)
-            await dispatch(getAll())
+            // await dispatch(getAll())
         } catch (e) {
             const err = e as AxiosError
             rejectWithValue(err.response.data)
@@ -45,7 +46,7 @@ const update = createAsyncThunk<void, { car: ICar, id: number }>(
     async ({car, id}, {rejectWithValue, dispatch}) => {
         try {
             await carService.updateByID(car, id)
-            await dispatch(getAll())
+            // await dispatch(getAll())
         } catch (e) {
             const err = e as AxiosError
             rejectWithValue(err.response.data)
@@ -58,7 +59,7 @@ const remove = createAsyncThunk<void, { id: number }>(
     async ({id}, {rejectWithValue, dispatch}) => {
         try {
             await carService.deleteByID(id)
-            await dispatch(getAll())
+            // await dispatch(getAll())
         } catch (e) {
             const err = e as AxiosError
             rejectWithValue(err.response.data)

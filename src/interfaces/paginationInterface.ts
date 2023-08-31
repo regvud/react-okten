@@ -1,7 +1,7 @@
 export interface IPagination<DATA> {
     "total_items": number,
     "total_pages": number,
-    "prev": string,
-    "next": string,
+    "prev": { page: number },
+    "next": { page: number },
     "items": DATA[]
 }
