@@ -12,10 +12,12 @@ const LoginPage = () => {
 
     const onLoginSubmit: SubmitHandler<IAuth> = async (user) => {
         const {meta: {requestStatus}} = await dispatch(authActions.loginUser({user}))
+
         if (requestStatus === 'fulfilled') {
             reset()
             navigate('/cars')
         }
+
     }
     return (
         <form onSubmit={handleSubmit(onLoginSubmit)}>
