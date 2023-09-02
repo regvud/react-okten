@@ -76,6 +76,22 @@ const remove = createAsyncThunk<void, { id: number }>(
     }
 )
 
+const insertPhoto = createAsyncThunk<void, { id: number, photo: string }>(
+    'carSlice/insertPhoto',
+    async ({id, photo}, {rejectWithValue, dispatch, getState}) => {
+        try {
+            await carService.insertPhotoByID(id, photo)
+            const {cars: {page}} = getState() as RootState;
+            await dispatch(getAll({page}))
+
+        } catch (e) {
+            const err = e as AxiosError
+            rejectWithValue(err.response.data)
+
+        }
+    }
+)
+
 
 const carSlice = createSlice({
     name: 'carSlice',
@@ -111,7 +127,8 @@ const carActions = {
     getAll,
     create,
     update,
-    remove
+    remove,
+    insertPhoto
 }
 
 export {
