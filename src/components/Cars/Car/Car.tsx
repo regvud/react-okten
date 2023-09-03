@@ -1,9 +1,8 @@
 import React, {FC, PropsWithChildren, useState} from 'react';
-import {ICar} from "../../../interfaces/carInterface";
+import {ICar, ICarPhoto} from "../../../interfaces";
 import {carActions} from "../../../redux/slices/carsSlice";
 import {useAppDispatch,} from "../../../hooks/reduxHooks";
 import {SubmitHandler, useForm} from "react-hook-form";
-import {ICarPhoto} from "../../../interfaces/carPhoto";
 
 interface IProps extends PropsWithChildren {
     car: ICar,
@@ -18,9 +17,9 @@ const Car: FC<IProps> = ({car}) => {
             dispatch(carActions.remove({id}))
         }
 
-        const addPhoto: SubmitHandler<ICarPhoto> = async (photo) => {
+        const addPhoto: SubmitHandler<ICarPhoto> = async (carPhoto) => {
             setValue('photo', car.photo)
-            await dispatch(carActions.insertPhoto({id, photo}))
+            await dispatch(carActions.insertPhoto({photo: carPhoto, id}))
             reset()
         }
 
@@ -37,8 +36,8 @@ const Car: FC<IProps> = ({car}) => {
                 <button onClick={() => setOnButtonClick(prev => !prev)}>add photo</button>
                 {onButtonClick &&
                     <form onSubmit={handleSubmit(addPhoto)}>
-                        <input type={'text'} placeholder={'photo url'} {...register('photo')}/>
-                        <button>add</button>
+                        <input type="text" placeholder={'photo url'} {...register('photo')}/>
+                        <button onClick={() => dispatch(carActions.setCarPhoto({photo: {photo, id}}))}>add</button>
                     </form>
                 }
             </div>

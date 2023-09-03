@@ -1,16 +1,16 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {ICar} from "../../interfaces/carInterface";
 import {carService} from "../../services/carService";
 import {AxiosError} from "axios";
-import {IPagination} from "../../interfaces/paginationInterface";
 import {RootState} from "../store";
+import {ICar, ICarPhoto, IPagination} from "../../interfaces";
 
 interface IState {
     cars: ICar[],
     carForUpdate: ICar,
     page: number,
     next: { page: number },
-    prev: { page: number }
+    prev: { page: number },
+    carPhoto: ICarPhoto
 }
 
 const initialState: IState = {
@@ -18,7 +18,8 @@ const initialState: IState = {
     carForUpdate: null,
     page: 1,
     next: null,
-    prev: null
+    prev: null,
+    carPhoto: null
 }
 
 const getAll = createAsyncThunk<IPagination<ICar>, { page: number }>(
@@ -76,7 +77,7 @@ const remove = createAsyncThunk<void, { id: number }>(
     }
 )
 
-const insertPhoto = createAsyncThunk<void, { id: number, photo: string }>(
+const insertPhoto = createAsyncThunk<void, { id: number, photo: ICarPhoto }>(
     'carSlice/insertPhoto',
     async ({id, photo}, {rejectWithValue, dispatch, getState}) => {
         try {
@@ -100,6 +101,9 @@ const carSlice = createSlice({
         setCarForUpdate: (state, action: PayloadAction<{ car: ICar }>) => {
             state.carForUpdate = action.payload.car
         },
+        setCarPhoto: (state, action: PayloadAction<{ photo: ICarPhoto }>) => {
+            state.carPhoto = action.payload.photo
+        },
         incrementPage: (state) => {
             state.page += 1
         },
@@ -116,6 +120,9 @@ const carSlice = createSlice({
             })
             .addCase(update.fulfilled, (state) => {
                 state.carForUpdate = null
+            })
+            .addCase(insertPhoto.fulfilled, (state) => {
+                state.carPhoto = null
             })
 
 })

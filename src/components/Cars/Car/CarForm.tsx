@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {SubmitHandler, useForm} from "react-hook-form";
-import {ICar} from "../../../interfaces/carInterface";
+import {ICar} from "../../../interfaces";
 import {useAppDispatch, useAppSelector} from "../../../hooks/reduxHooks";
 import {carActions} from "../../../redux/slices/carsSlice";
 

@@ -47,7 +47,7 @@ apiService.interceptors.response.use(
                 } catch (e) {
                     authService.deleteTokens()
                     isRefreshing = false
-                    router.navigate('/login?SessionExpired=true')
+                    await router.navigate('/login?SessionExpired=true')
                     return Promise.reject(error)
                 }
             }
@@ -62,6 +62,7 @@ apiService.interceptors.response.use(
                 })
             })
         }
+
     }
 )
 
