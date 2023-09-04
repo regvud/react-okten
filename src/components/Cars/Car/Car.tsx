@@ -21,6 +21,7 @@ const Car: FC<IProps> = ({car}) => {
         const addPhoto = async () => {
             const formData = new FormData();
             const file: Blob = inputRef.current.files[0]
+            console.log(file)
             formData.append('photo', file)
             await carService.insertPhotoByID(id, formData)
             setImage(URL.createObjectURL(file))
